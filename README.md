@@ -1,20 +1,71 @@
-# DT-ProfiSchraube – Schraubenverbindung nach VDI 2230
+# DT-ProfiSchraube – Schraubenverbindungen nach VDI 2230 Blatt 1
 
-**DT-ProfiSchraube** ist eine professionelle Web-Anwendung zur rechnerischen Überprüfung und Auslegung von systematisch beanspruchten Schraubenverbindungen. Die Software basiert auf der anerkannten Richtlinie für hochbeanspruchte Schraubenverbindungen im Maschinenbau.
+DT-ProfiSchraube rechnet Schraubenverbindungen nach VDI 2230 Blatt 1 und zeigt
+dabei jeden Rechenschritt: allgemeine Formel, eingesetzte Werte, Ergebnis und
+die Quelle, aus der die Beziehung stammt. Eine Handrechnung lässt sich damit
+Zeile für Zeile danebenlegen.
 
-## 🚀 Live-Testversion
-Probieren Sie die Web-App direkt im Browser aus:
-👉 **[DT-ProfiSchraube Testversion starten](https://dietertepe.github.io/dt-profischraube-web/DT-ProfiSchraube_Test.html)**
+Gedacht für Konstruktion, Berechnung, technische Büros und für die Lehre.
 
-## ✨ Funktionen
-* **Normenkonforme Berechnung:** Vollständige Umsetzung der Berechnungsverfahren nach **VDI 2230 Blatt 1:2015-11**.
-* **Umfangreiche Analysecodes:** Strukturierte Eingabe- und Berechnungsbereiche unterteilt in die Schritte R0 bis R13.
-* **Visuelle Darstellung:** Dynamische Erzeugung von Verspannungsschaubildern und maßstäblichen Querschnittszeichnungen zur direkten Plausibilitätsprüfung.
-* **Erweiterter Datenexport:** Speichern und Laden im `.dt`-Format sowie vielseitige Exporte als PDF, Word (`.rtf`), CSV-Datentabelle oder PNG-Grafik.
+## Testversion
 
-## 🛠️ Technische Details
-* **Architektur:** Reine Client-Side Web-App (HTML5, JavaScript, CSS).
-* **Datenschutz:** Alle Berechnungen erfolgen lokal im Browser – es werden keine sensiblen Konstruktionsdaten auf externe Server übertragen.
+**[DT-ProfiSchraube Testversion starten](https://dietertepe.github.io/dt-profischraube-web/DT-ProfiSchraube_Test.html)**
+
+Läuft direkt im Browser, ohne Anmeldung und ohne Installation.
+Die Testversion rechnet in vollem Umfang. Gesperrt sind ausschließlich die
+Ausgaben: Speichern, Öffnen, Drucken und der Word-Bericht.
+
+## Vollversion
+
+Die Vollversion kostet **159 € einmalig**. Kein Abonnement, keine laufenden
+Kosten. Sie besteht aus einer einzelnen HTML-Datei, die offline läuft.
+
+**[Zur Produktseite: dt-profidreieck.de](https://dt-profidreieck.de/)**
+
+Dort finden sich auch die drei weiteren Programme: DT-ProfiDreieck
+(Dreiecksgeometrie mit DXF-Export), DT-ProfiPassung (Passungen nach ISO 286)
+und DT-ProfiSchweissnaht (Schweißnähte nach EN 1993-1-8).
+
+## Funktionsumfang
+
+**Eingabe**
+
+- Schraubenabmessung, Festigkeitsklasse und Werkstoffe
+- Verspannte Teile mit Werkstoff, Klemmlänge und Auflagegeometrie
+- Betriebskräfte, Krafteinleitung und Anziehverfahren mit Anziehfaktor
+- Reibungszahlen in Gewinde und Kopfauflage
+
+**Rechnung und Ergebnis**
+
+- Nachgiebigkeiten von Schraube und verspannten Teilen, daraus das
+  Kraftverhältnis
+- Fünf Nachweise mit Ampelanzeige, so dass auf einen Blick erkennbar ist,
+  welcher Punkt kritisch wird
+- Verspannungsschaubild als Grafik
+- Vollständiger Rechenweg mit Formel, eingesetzten Werten und Quellenangabe je
+  Schritt
+- Flanschassistent für die häufigen Anwendungsfälle
+- Hilfetexte an den Eingabefeldern, die erklären, welcher Wert gemeint ist
+
+**Ausgabe (Vollversion)**
+
+- Bericht als Word-Dokument (.rtf)
+- Druck und PDF
+- Speichern und Laden im programmeigenen Datensatzformat
+
+## Prüfung der Rechenkerne
+
+Die Rechenwege sind mit über 2,2 Millionen automatisierten Testfällen gegen
+bekannte Ergebnisse abgeglichen worden.
+
+## Technisches
+
+Eine einzelne HTML-Datei. Keine Installation, kein Konto, keine
+Administratorrechte. Alle Berechnungen laufen im Browser auf dem eigenen Gerät;
+es werden keine Daten an Server übertragen. Läuft dadurch auch ohne
+Internetverbindung – in der Halle, auf dem Tablet an der Maschine.
 
 ---
-*Hinweis zur Suchmaschinen-Indexierung (SEO): Diese README.md dient als Einstiegspunkt für Suchmaschinen-Crawler, um verwaiste Seiten (Orphan Pages) zu vermeiden und die Testversion erfolgreich im Google-Index zu listen.*
+
+*Die Ergebnisse sind ohne Gewähr. Vor der Verwendung sind sie gegen die
+Originalnorm zu prüfen. Die fachliche Verantwortung bleibt beim Anwender.*
