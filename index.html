@@ -6,8 +6,8 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#101923">
 
-  <title>Schraubenberechnung nach VDI 2230 | DT-ProfiSchraube</title>
-  <meta name="description" content="Schraubenverbindung nach VDI 2230 Blatt 1 online berechnen: fünf Nachweise, Verspannungsschaubild und Rechenweg mit Quelle. Gratis im Browser testen.">
+  <title>Schraubenberechnung online nach VDI 2230 mit Rechenweg</title>
+  <meta name="description" content="Schraube nach VDI 2230 online berechnen: Vorspannkraft, Anziehdrehmoment und Sicherheiten mit Rechenweg – Beispiel M12 10.9. Kostenlos testen.">
   <meta name="author" content="Dieter Tepe">
 
   <link rel="canonical" href="https://dietertepe.github.io/dt-profischraube-web/">
@@ -24,8 +24,8 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:site_name" content="DT-ProfiTools">
-  <meta property="og:title" content="Schraubenberechnung nach VDI 2230 | DT-ProfiSchraube">
-  <meta property="og:description" content="Schraubenverbindung nach VDI 2230 Blatt 1 online berechnen: fünf Nachweise, Verspannungsschaubild und Rechenweg mit Quelle. Gratis im Browser testen.">
+  <meta property="og:title" content="Schraubenberechnung online nach VDI 2230 mit Rechenweg">
+  <meta property="og:description" content="Schraube nach VDI 2230 online berechnen: Vorspannkraft, Anziehdrehmoment und Sicherheiten mit Rechenweg – Beispiel M12 10.9. Kostenlos testen.">
   <meta property="og:url" content="https://dietertepe.github.io/dt-profischraube-web/">
   <meta property="og:image" content="https://dt-profidreieck.de/Schraube_Daten/bilder/schraube-start.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -39,8 +39,8 @@
       "@type": "WebPage",
       "@id": "https://dietertepe.github.io/dt-profischraube-web/#webpage",
       "url": "https://dietertepe.github.io/dt-profischraube-web/",
-      "name": "Schraubenberechnung nach VDI 2230 | DT-ProfiSchraube",
-      "description": "Schraubenverbindung nach VDI 2230 Blatt 1 online berechnen: fünf Nachweise, Verspannungsschaubild und Rechenweg mit Quelle. Gratis im Browser testen.",
+      "name": "Schraubenberechnung online nach VDI 2230 mit Rechenweg",
+      "description": "Schraube nach VDI 2230 online berechnen: Vorspannkraft, Anziehdrehmoment und Sicherheiten mit Rechenweg – Beispiel M12 10.9. Kostenlos testen.",
       "inLanguage": "de",
       "primaryImageOfPage": "https://dt-profidreieck.de/Schraube_Daten/bilder/schraube-start.jpg",
       "isPartOf": {
@@ -90,6 +90,11 @@
           "availability": "https://schema.org/InStock",
           "url": "https://www.checkout-ds24.com/product/722968"
         }
+      ],
+      "featureList": [
+        "Vorspannkraft berechnen – Mindestwert und Streuung",
+        "Anziehdrehmoment berechnen",
+        "Sicherheiten: Fließen, Dauerhaltbarkeit, Flächenpressung"
       ]
     }
   ]
@@ -216,6 +221,12 @@
     .langs { display:inline-flex; gap:4px; margin-left:14px; }
     .langs a { text-decoration:none; font-size:.8rem; font-weight:800; padding:3px 8px; border-radius:999px; border:1px solid var(--line); color:var(--muted); }
     .langs a[aria-current="page"] { background:var(--cyan); border-color:var(--cyan); color:#062128; }
+    .task-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .task { padding: 22px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.035); }
+    .task p { color: var(--muted); font-size: .96rem; }
+    .task-f { font-size: 1.05rem; margin: 8px 0 0; overflow-wrap: anywhere; }
+    .task-cta { margin-top: 22px; }
+    @media (max-width: 780px) { .task-grid { grid-template-columns: 1fr; } }
 
     :root { --cyan: #d99a3c; --cyan-dark: #8a5a12; }
     .primary { background: linear-gradient(135deg, #d99a3c, #8a5a12); color:#fff; box-shadow:none; }
@@ -298,6 +309,41 @@
       </div>
     </section>
 
+    <section class="content" id="aufgaben">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Rechenbeispiel</div>
+          <h2>Schraubenberechnung nach VDI 2230 – Beispiel M12 10.9</h2>
+          <p class="muted">Das im Programm hinterlegte VDI-2230-Beispiel „Hydraulikzylinder“: Durchsteckverbindung M12, Festigkeitsklasse 10.9, Klemmlänge 42 mm, Reibwerte μ<sub>G</sub> = μ<sub>K</sub> = 0,10, Axialkraft F<sub>A</sub> = 24,9 kN, drehmomentgesteuert angezogen. Alle Zahlen stammen aus dem Rechenweg des Programms.</p>
+        </div>
+        <div class="task-grid">
+          <article class="task" id="vorspannkraft">
+            <h3>Vorspannkraft berechnen – Mindestwert und Streuung</h3>
+            <p>Die Mindest-Montagevorspannkraft deckt Klemmkraft, Betriebskraft und Setzverlust ab. Der Anziehfaktor α<sub>A</sub> berücksichtigt die Streuung beim Anziehen; die größte Vorspannkraft muss unter dem zulässigen Wert bleiben.</p>
+            <div class="formula task-f">F<sub>Mmin</sub> = F<sub>Kerf</sub> + (1 − Φ<sub>en</sub>)·F<sub>A</sub> + F<sub>Z</sub></div>
+            <div class="formula task-f">= 1.000 + (1 − 0,0322)·24.900 + 2.421 = 27.519 N</div>
+            <div class="formula task-f">F<sub>Mmax</sub> = α<sub>A</sub>·F<sub>Mmin</sub> = 1,70·27.519 = 46.782 N</div>
+            <div class="formula task-f">F<sub>Mmax</sub> ≤ F<sub>Mzul</sub> = 58.379 N ✓</div>
+          </article>
+          <article class="task" id="anziehdrehmoment">
+            <h3>Anziehdrehmoment berechnen</h3>
+            <p>Das Anziehdrehmoment setzt sich aus Gewinde- und Kopfreibung zusammen. Mit diesem Moment wird die Schraube auf die zulässige Montagevorspannkraft angezogen.</p>
+            <div class="formula task-f">M<sub>A</sub> = F<sub>Mzul</sub>·(P/(2π) + 0,577·μ<sub>G</sub>·d<sub>2</sub> + μ<sub>K</sub>·D<sub>Km</sub>/2)</div>
+            <div class="formula task-f">M<sub>G</sub> = 52,87 N·m · M<sub>K</sub> = 50,51 N·m</div>
+            <div class="formula task-f">M<sub>A</sub> = 103,4 N·m</div>
+          </article>
+          <article class="task" id="sicherheiten">
+            <h3>Sicherheiten: Fließen, Dauerhaltbarkeit, Flächenpressung</h3>
+            <p>Für jeden Nachweis zeigt das Programm Formel, eingesetzte Werte und Quelle in der VDI 2230. Nachrechnen: in der Testversion unter „Beispiel laden“ den Eintrag „Hydraulikzylinder (M12, VDI-2230-Beispiel)“ wählen und „Berechnen“ drücken.</p>
+            <div class="formula task-f">S<sub>F</sub> = R<sub>p0,2</sub> / σ<sub>red,B</sub> = 900 / 733 = 1,23</div>
+            <div class="formula task-f">S<sub>D</sub> = σ<sub>A</sub> / σ<sub>a</sub> = 48,9 / 4,8 = 10,27</div>
+            <div class="formula task-f">S<sub>P</sub> = p<sub>G</sub> / p<sub>max</sub> = 900 / 286 = 3,15</div>
+          </article>
+        </div>
+        <div class="actions task-cta"><a class="button primary" href="https://dietertepe.github.io/dt-profischraube-web/DT-ProfiSchraube_Test.html">Beispiel in der Testversion nachrechnen →</a></div>
+      </div>
+    </section>
+
     <section class="content">
       <div class="wrap split">
         <div>
@@ -353,6 +399,10 @@
           <details>
             <summary>Welche Nachweise werden geführt?</summary>
             <p>Fünf Nachweise mit Ampelanzeige, dazu Nachgiebigkeiten, Kraftverhältnis und Verspannungsschaubild.</p>
+          </details>
+          <details>
+            <summary>Wie berechne ich Vorspannkraft und Anziehdrehmoment einer Schraube?</summary>
+            <p>Nach VDI 2230 Blatt 1: Aus Klemmkraft, Betriebskraft und Setzverlust folgt die Mindest-Vorspannkraft, mit dem Anziehfaktor die größte Vorspannkraft. Das Anziehdrehmoment ergibt sich aus der zulässigen Vorspannkraft sowie Gewinde- und Kopfreibung. Ein durchgerechnetes Beispiel (M12 10.9, M<sub>A</sub> = 103,4 N·m) steht oben auf dieser Seite.</p>
           </details>
           <details>
             <summary>Wie wurde das Programm geprüft?</summary>

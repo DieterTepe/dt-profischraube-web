@@ -6,8 +6,8 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#101923">
 
-  <title>Cálculo de Parafusos VDI 2230 | DT-ProfiSchraube</title>
-  <meta name="description" content="Calcule uniões parafusadas conforme VDI 2230 Parte 1: cinco verificações, diagrama de tensões e memória de cálculo com fontes. Teste grátis.">
+  <title>Cálculo de parafusos VDI 2230 – pré-carga e torque</title>
+  <meta name="description" content="Calcule uniões parafusadas conforme VDI 2230 Parte 1: pré-carga, torque de aperto e segurança com memória de cálculo – exemplo M12 10.9. Teste grátis.">
   <meta name="author" content="Dieter Tepe">
 
   <link rel="canonical" href="https://dietertepe.github.io/dt-profischraube-web/pt/">
@@ -24,8 +24,8 @@
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:site_name" content="DT-ProfiTools">
-  <meta property="og:title" content="Cálculo de Parafusos VDI 2230 | DT-ProfiSchraube">
-  <meta property="og:description" content="Calcule uniões parafusadas conforme VDI 2230 Parte 1: cinco verificações, diagrama de tensões e memória de cálculo com fontes. Teste grátis.">
+  <meta property="og:title" content="Cálculo de parafusos VDI 2230 – pré-carga e torque">
+  <meta property="og:description" content="Calcule uniões parafusadas conforme VDI 2230 Parte 1: pré-carga, torque de aperto e segurança com memória de cálculo – exemplo M12 10.9. Teste grátis.">
   <meta property="og:url" content="https://dietertepe.github.io/dt-profischraube-web/pt/">
   <meta property="og:image" content="https://dt-profidreieck.de/Schraube_Daten/bilder/schraube-start.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -39,8 +39,8 @@
       "@type": "WebPage",
       "@id": "https://dietertepe.github.io/dt-profischraube-web/pt/#webpage",
       "url": "https://dietertepe.github.io/dt-profischraube-web/pt/",
-      "name": "Cálculo de Parafusos VDI 2230 | DT-ProfiSchraube",
-      "description": "Calcule uniões parafusadas conforme VDI 2230 Parte 1: cinco verificações, diagrama de tensões e memória de cálculo com fontes. Teste grátis.",
+      "name": "Cálculo de parafusos VDI 2230 – pré-carga e torque",
+      "description": "Calcule uniões parafusadas conforme VDI 2230 Parte 1: pré-carga, torque de aperto e segurança com memória de cálculo – exemplo M12 10.9. Teste grátis.",
       "inLanguage": "pt-BR",
       "primaryImageOfPage": "https://dt-profidreieck.de/Schraube_Daten/bilder/schraube-start.jpg",
       "isPartOf": {
@@ -90,6 +90,11 @@
           "availability": "https://schema.org/InStock",
           "url": "https://www.checkout-ds24.com/product/722968"
         }
+      ],
+      "featureList": [
+        "Pré-carga do parafuso – valor mínimo e dispersão",
+        "Torque de aperto",
+        "Fatores de segurança: escoamento, fadiga, pressão superficial"
       ]
     }
   ]
@@ -216,6 +221,12 @@
     .langs { display:inline-flex; gap:4px; margin-left:14px; }
     .langs a { text-decoration:none; font-size:.8rem; font-weight:800; padding:3px 8px; border-radius:999px; border:1px solid var(--line); color:var(--muted); }
     .langs a[aria-current="page"] { background:var(--cyan); border-color:var(--cyan); color:#062128; }
+    .task-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .task { padding: 22px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.035); }
+    .task p { color: var(--muted); font-size: .96rem; }
+    .task-f { font-size: 1.05rem; margin: 8px 0 0; overflow-wrap: anywhere; }
+    .task-cta { margin-top: 22px; }
+    @media (max-width: 780px) { .task-grid { grid-template-columns: 1fr; } }
 
     :root { --cyan: #d99a3c; --cyan-dark: #8a5a12; }
     .primary { background: linear-gradient(135deg, #d99a3c, #8a5a12); color:#fff; box-shadow:none; }
@@ -298,6 +309,41 @@
       </div>
     </section>
 
+    <section class="content" id="aufgaben">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Exemplo de cálculo</div>
+          <h2>Cálculo de parafusos conforme VDI 2230 – exemplo M12 10.9</h2>
+          <p class="muted">O exemplo VDI 2230 “Hydraulikzylinder” (cilindro hidráulico) incluído no programa: união passante M12, classe de resistência 10.9, comprimento de aperto 42 mm, atrito μ<sub>G</sub> = μ<sub>K</sub> = 0,10, força axial F<sub>A</sub> = 24,9 kN, aperto controlado por torque. Todos os valores vêm da memória de cálculo do programa.</p>
+        </div>
+        <div class="task-grid">
+          <article class="task" id="vorspannkraft">
+            <h3>Pré-carga do parafuso – valor mínimo e dispersão</h3>
+            <p>A pré-carga mínima de montagem cobre a força de aperto, a força de serviço e a perda por assentamento. O fator de aperto α<sub>A</sub> considera a dispersão do método de aperto; a pré-carga máxima deve ficar abaixo do valor admissível.</p>
+            <div class="formula task-f">F<sub>Mmin</sub> = F<sub>Kerf</sub> + (1 − Φ<sub>en</sub>)·F<sub>A</sub> + F<sub>Z</sub></div>
+            <div class="formula task-f">= 1.000 + (1 − 0,0322)·24.900 + 2.421 = 27.519 N</div>
+            <div class="formula task-f">F<sub>Mmax</sub> = α<sub>A</sub>·F<sub>Mmin</sub> = 1,70·27.519 = 46.782 N</div>
+            <div class="formula task-f">F<sub>Mmax</sub> ≤ F<sub>Mzul</sub> = 58.379 N ✓</div>
+          </article>
+          <article class="task" id="anziehdrehmoment">
+            <h3>Torque de aperto</h3>
+            <p>O torque de aperto é composto pelo atrito na rosca e sob a cabeça. Com esse torque, o parafuso é apertado até a pré-carga de montagem admissível.</p>
+            <div class="formula task-f">M<sub>A</sub> = F<sub>Mzul</sub>·(P/(2π) + 0,577·μ<sub>G</sub>·d<sub>2</sub> + μ<sub>K</sub>·D<sub>Km</sub>/2)</div>
+            <div class="formula task-f">M<sub>G</sub> = 52,87 N·m · M<sub>K</sub> = 50,51 N·m</div>
+            <div class="formula task-f">M<sub>A</sub> = 103,4 N·m</div>
+          </article>
+          <article class="task" id="sicherheiten">
+            <h3>Fatores de segurança: escoamento, fadiga, pressão superficial</h3>
+            <p>Para cada verificação, o programa mostra a fórmula, os valores usados e a referência na VDI 2230. Para refazer: na versão de teste, escolha “Hydraulikzylinder (M12, VDI-2230-Beispiel)” em “Carregar exemplo” e clique em “Calcular”.</p>
+            <div class="formula task-f">S<sub>F</sub> = R<sub>p0,2</sub> / σ<sub>red,B</sub> = 900 / 733 = 1,23</div>
+            <div class="formula task-f">S<sub>D</sub> = σ<sub>A</sub> / σ<sub>a</sub> = 48,9 / 4,8 = 10,27</div>
+            <div class="formula task-f">S<sub>P</sub> = p<sub>G</sub> / p<sub>max</sub> = 900 / 286 = 3,15</div>
+          </article>
+        </div>
+        <div class="actions task-cta"><a class="button primary" href="https://dietertepe.github.io/dt-profischraube-web/DT-ProfiSchraube_Test.html?lang=pt">Refazer o exemplo na versão de teste →</a></div>
+      </div>
+    </section>
+
     <section class="content">
       <div class="wrap split">
         <div>
@@ -353,6 +399,10 @@
           <details>
             <summary>Quais verificações são feitas?</summary>
             <p>Cinco verificações com semáforo, além de flexibilidade, fator de carga e diagrama de tensões.</p>
+          </details>
+          <details>
+            <summary>Como calcular a pré-carga e o torque de aperto de um parafuso?</summary>
+            <p>Conforme a VDI 2230 Parte 1: força de aperto, força de serviço e perda por assentamento resultam na pré-carga mínima; com o fator de aperto obtém-se a pré-carga máxima. O torque de aperto resulta da pré-carga admissível e do atrito na rosca e sob a cabeça. Um exemplo completo (M12 10.9, M<sub>A</sub> = 103,4 N·m) está acima nesta página.</p>
           </details>
           <details>
             <summary>Como o programa foi testado?</summary>
