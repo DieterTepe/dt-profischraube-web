@@ -6,8 +6,8 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#101923">
 
-  <title>Bolted Joint Calculator to VDI 2230 | DT-ProfiSchraube</title>
-  <meta name="description" content="Calculate bolted joints to VDI 2230 Part 1: five safety checks, joint diagram and a calculation path with sources. Try it free in your browser.">
+  <title>VDI 2230 Bolt Calculator Online – Preload &amp; Torque</title>
+  <meta name="description" content="Calculate bolted joints to VDI 2230 Part 1: preload, tightening torque and safety factors with a full calculation path – worked example M12 10.9. Try it free.">
   <meta name="author" content="Dieter Tepe">
 
   <link rel="canonical" href="https://dietertepe.github.io/dt-profischraube-web/en/">
@@ -24,8 +24,8 @@
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:site_name" content="DT-ProfiTools">
-  <meta property="og:title" content="Bolted Joint Calculator to VDI 2230 | DT-ProfiSchraube">
-  <meta property="og:description" content="Calculate bolted joints to VDI 2230 Part 1: five safety checks, joint diagram and a calculation path with sources. Try it free in your browser.">
+  <meta property="og:title" content="VDI 2230 Bolt Calculator Online – Preload &amp; Torque">
+  <meta property="og:description" content="Calculate bolted joints to VDI 2230 Part 1: preload, tightening torque and safety factors with a full calculation path – worked example M12 10.9. Try it free.">
   <meta property="og:url" content="https://dietertepe.github.io/dt-profischraube-web/en/">
   <meta property="og:image" content="https://dt-profidreieck.de/Schraube_Daten/bilder/schraube-start.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -39,8 +39,8 @@
       "@type": "WebPage",
       "@id": "https://dietertepe.github.io/dt-profischraube-web/en/#webpage",
       "url": "https://dietertepe.github.io/dt-profischraube-web/en/",
-      "name": "Bolted Joint Calculator to VDI 2230 | DT-ProfiSchraube",
-      "description": "Calculate bolted joints to VDI 2230 Part 1: five safety checks, joint diagram and a calculation path with sources. Try it free in your browser.",
+      "name": "VDI 2230 Bolt Calculator Online – Preload & Torque",
+      "description": "Calculate bolted joints to VDI 2230 Part 1: preload, tightening torque and safety factors with a full calculation path – worked example M12 10.9. Try it free.",
       "inLanguage": "en",
       "primaryImageOfPage": "https://dt-profidreieck.de/Schraube_Daten/bilder/schraube-start.jpg",
       "isPartOf": {
@@ -90,6 +90,11 @@
           "availability": "https://schema.org/InStock",
           "url": "https://www.checkout-ds24.com/product/722968"
         }
+      ],
+      "featureList": [
+        "Bolt preload – minimum value and scatter",
+        "Tightening torque",
+        "Safety factors: yield, fatigue, surface pressure"
       ]
     }
   ]
@@ -216,6 +221,12 @@
     .langs { display:inline-flex; gap:4px; margin-left:14px; }
     .langs a { text-decoration:none; font-size:.8rem; font-weight:800; padding:3px 8px; border-radius:999px; border:1px solid var(--line); color:var(--muted); }
     .langs a[aria-current="page"] { background:var(--cyan); border-color:var(--cyan); color:#062128; }
+    .task-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .task { padding: 22px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.035); }
+    .task p { color: var(--muted); font-size: .96rem; }
+    .task-f { font-size: 1.05rem; margin: 8px 0 0; overflow-wrap: anywhere; }
+    .task-cta { margin-top: 22px; }
+    @media (max-width: 780px) { .task-grid { grid-template-columns: 1fr; } }
 
     :root { --cyan: #d99a3c; --cyan-dark: #8a5a12; }
     .primary { background: linear-gradient(135deg, #d99a3c, #8a5a12); color:#fff; box-shadow:none; }
@@ -298,6 +309,41 @@
       </div>
     </section>
 
+    <section class="content" id="aufgaben">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Worked example</div>
+          <h2>Bolt calculation to VDI 2230 – example M12 10.9</h2>
+          <p class="muted">The VDI 2230 example “Hydraulikzylinder” (hydraulic cylinder) built into the program: through-bolted joint M12, property class 10.9, clamp length 42 mm, friction μ<sub>G</sub> = μ<sub>K</sub> = 0.10, axial load F<sub>A</sub> = 24.9 kN, torque-controlled tightening. All figures come from the program’s calculation path.</p>
+        </div>
+        <div class="task-grid">
+          <article class="task" id="vorspannkraft">
+            <h3>Bolt preload – minimum value and scatter</h3>
+            <p>The minimum assembly preload covers clamp load, working load and embedding loss. The tightening factor α<sub>A</sub> accounts for the scatter of the tightening method; the maximum preload must stay below the permissible value.</p>
+            <div class="formula task-f">F<sub>Mmin</sub> = F<sub>Kerf</sub> + (1 − Φ<sub>en</sub>)·F<sub>A</sub> + F<sub>Z</sub></div>
+            <div class="formula task-f">= 1,000 + (1 − 0.0322)·24,900 + 2,421 = 27,519 N</div>
+            <div class="formula task-f">F<sub>Mmax</sub> = α<sub>A</sub>·F<sub>Mmin</sub> = 1.70·27,519 = 46,782 N</div>
+            <div class="formula task-f">F<sub>Mmax</sub> ≤ F<sub>Mzul</sub> = 58,379 N ✓</div>
+          </article>
+          <article class="task" id="anziehdrehmoment">
+            <h3>Tightening torque</h3>
+            <p>The tightening torque consists of thread friction and head friction. With this torque the bolt is tightened to the permissible assembly preload.</p>
+            <div class="formula task-f">M<sub>A</sub> = F<sub>Mzul</sub>·(P/(2π) + 0.577·μ<sub>G</sub>·d<sub>2</sub> + μ<sub>K</sub>·D<sub>Km</sub>/2)</div>
+            <div class="formula task-f">M<sub>G</sub> = 52.87 N·m · M<sub>K</sub> = 50.51 N·m</div>
+            <div class="formula task-f">M<sub>A</sub> = 103.4 N·m</div>
+          </article>
+          <article class="task" id="sicherheiten">
+            <h3>Safety factors: yield, fatigue, surface pressure</h3>
+            <p>For every check the program shows the formula, the inserted values and the VDI 2230 reference. To recalculate: in the free version choose “Hydraulikzylinder (M12, VDI-2230-Beispiel)” under “Load example” and press “Calculate”.</p>
+            <div class="formula task-f">S<sub>F</sub> = R<sub>p0.2</sub> / σ<sub>red,B</sub> = 900 / 733 = 1.23</div>
+            <div class="formula task-f">S<sub>D</sub> = σ<sub>A</sub> / σ<sub>a</sub> = 48.9 / 4.8 = 10.27</div>
+            <div class="formula task-f">S<sub>P</sub> = p<sub>G</sub> / p<sub>max</sub> = 900 / 286 = 3.15</div>
+          </article>
+        </div>
+        <div class="actions task-cta"><a class="button primary" href="https://dietertepe.github.io/dt-profischraube-web/DT-ProfiSchraube_Test.html?lang=en">Recalculate the example in the free version →</a></div>
+      </div>
+    </section>
+
     <section class="content">
       <div class="wrap split">
         <div>
@@ -353,6 +399,10 @@
           <details>
             <summary>Which checks are performed?</summary>
             <p>Five safety checks with a traffic-light display, plus resilience, load factor and joint diagram.</p>
+          </details>
+          <details>
+            <summary>How do I calculate bolt preload and tightening torque?</summary>
+            <p>According to VDI 2230 Part 1: clamp load, working load and embedding loss give the minimum preload, the tightening factor gives the maximum preload. The tightening torque follows from the permissible preload plus thread and head friction. A fully worked example (M12 10.9, M<sub>A</sub> = 103.4 N·m) is shown above on this page.</p>
           </details>
           <details>
             <summary>How was the program tested?</summary>
