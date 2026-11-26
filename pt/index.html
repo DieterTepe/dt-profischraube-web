@@ -98,7 +98,8 @@
       "featureList": [
         "Pré-carga do parafuso – valor mínimo e dispersão",
         "Torque de aperto",
-        "Fatores de segurança: escoamento, fadiga, pressão superficial"
+        "Fatores de segurança: escoamento, fadiga, pressão superficial",
+        "Segundo exemplo: M16 10.9 com carga axial e transversal"
       ]
     }
   ]
@@ -317,7 +318,7 @@
       <div class="wrap">
         <div class="section-head">
           <div class="eyebrow">Exemplo de cálculo</div>
-          <h2>Cálculo de parafusos conforme VDI 2230 – exemplo M12 10.9</h2>
+          <h2>Cálculo de parafusos conforme VDI 2230 – exemplos M12 e M16 10.9</h2>
           <p class="muted">O exemplo VDI 2230 “Hydraulikzylinder” (cilindro hidráulico) incluído no programa: união passante M12, classe de resistência 10.9, comprimento de aperto 42 mm, atrito μ<sub>G</sub> = μ<sub>K</sub> = 0,10, força axial F<sub>A</sub> = 24,9 kN, aperto controlado por torque. Todos os valores vêm da memória de cálculo do programa.</p>
         </div>
         <div class="task-grid">
@@ -342,6 +343,13 @@
             <div class="formula task-f">S<sub>F</sub> = R<sub>p0,2</sub> / σ<sub>red,B</sub> = 900 / 733 = 1,23</div>
             <div class="formula task-f">S<sub>D</sub> = σ<sub>A</sub> / σ<sub>a</sub> = 48,9 / 4,8 = 10,27</div>
             <div class="formula task-f">S<sub>P</sub> = p<sub>G</sub> / p<sub>max</sub> = 900 / 286 = 3,15</div>
+          </article>
+          <article class="task" id="m16">
+            <h3>Segundo exemplo: M16 10.9 com carga axial e transversal</h3>
+            <p>Exemplo do programa “Kombiniert M16 10.9 (axial + Querkraft)”: união passante, comprimento de aperto 40 mm, μ = 0,12, F<sub>A</sub> = 12 kN axial, F<sub>Q</sub> = 4 kN transversal, força de aperto exigida 26 kN. Passo a passo no <a href="https://dt-profidreieck.de/videos/schraube-vdi-2230.html">vídeo com memória de cálculo</a> (em alemão).</p>
+            <div class="formula task-f">F<sub>Mmin</sub> = 26.000 + (1 − 0,0856)·12.000 + 5.346 = 42.319 N</div>
+            <div class="formula task-f">F<sub>Mzul</sub> = 106.119 N · M<sub>A</sub> = 274 N·m</div>
+            <div class="formula task-f">S<sub>F</sub> = 1,25 · S<sub>P</sub> = 1,38 · S<sub>G</sub> = 26.000 / 20.000 = 1,30</div>
           </article>
         </div>
         <div class="actions task-cta"><a class="button primary" href="https://dietertepe.github.io/dt-profischraube-web/DT-ProfiSchraube_Test.html?lang=pt">Refazer o exemplo na versão de teste →</a></div>
@@ -373,7 +381,7 @@
     <section class="content" id="video">
       <div class="wrap media-link">
         <a class="thumb" href="https://dt-profidreieck.de/videos/schraube-vdi-2230.html">
-          <img src="https://dt-profidreieck.de/Schraube_Daten/bilder/schraube-start.jpg" width="1280" height="720" loading="lazy" alt="Miniatura do vídeo: DT-ProfiSchraube">
+          <img src="https://dt-profidreieck.de/Schraube_Daten/bilder/poster-schraube-m16.jpg" width="1280" height="720" loading="lazy" alt="Miniatura do vídeo: DT-ProfiSchraube">
           <span>▶ Ver o vídeo</span>
         </a>
         <div>
